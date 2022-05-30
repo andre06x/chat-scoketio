@@ -1,0 +1,50 @@
+import React, { useEffect } from 'react';
+
+const Chart = () => {
+
+  useEffect(() => {
+    const ctx = document.getElementById(`myChart`).getContext('2d');
+
+    new Chart(ctx, {
+      type: 'line',
+      data: {
+        labels: ['123'],
+        datasets: [{
+
+          label: "carregando ...",
+          data: [123],
+          pointRadius: 0,
+          pointHitRadius: 0,
+
+          backgroundColor: "rgba(255, 99, 132, 0.2)",
+          borderColor: "rgba(255, 99, 132, 1)",
+          borderWidth: 1,
+          fill: true
+
+        }]
+      },
+      options: {
+        scales: {
+          y: {
+            beginAtZero: true
+          },
+          x: {
+            display: true
+          }
+        },
+        interaction: {
+          mode: 'index',
+          intersect: false
+        },
+      }
+
+    });
+
+  }, []);
+
+  return (
+    <canvas id="myChart" width="400" height="400"></canvas>
+  )
+}
+
+export { Chart }
